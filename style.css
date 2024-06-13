@@ -8,6 +8,9 @@ body {
 #tentacles {
     width: 50px;
 }
+img{
+    width: 100%;
+}
 
 .header {
     display: flex;
