@@ -98,9 +98,11 @@ function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have not yet met their goal
-
+    const unfundedGames = GAMES_JSON.filter(game => game.pledged < game.goal);
+    console.log(unfundedGames);
 
     // use the function we previously created to add the unfunded games to the DOM
+    addGamesToPage(unfundedGames);
 
 }
 
@@ -109,10 +111,11 @@ function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have met or exceeded their goal
-
+    const fullyFunded = GAMES_JSON.filter(game => game.pledged >= game.goal);
+    console.log(fullyFunded);
 
     // use the function we previously created to add unfunded games to the DOM
-
+    addGamesToPage(fullyFunded);
 }
 
 // show all games
@@ -120,13 +123,14 @@ function showAllGames() {
     deleteChildElements(gamesContainer);
 
     // add all games from the JSON data to the DOM
+    addGamesToPage(GAMES_JSON);
 
 }
 
 // select each button in the "Our Games" section
-const unfundedBtn = document.getElementById("unfunded-btn");
-const fundedBtn = document.getElementById("funded-btn");
-const allBtn = document.getElementById("all-btn");
+const unfundedBtn = document.getElementById("unfunded-btn").addEventListener("click", filterUnfundedOnly);
+const fundedBtn = document.getElementById("funded-btn").addEventListener("click", filterFundedOnly);
+const allBtn = document.getElementById("all-btn").addEventListener("click", showAllGames);
 
 // add event listeners with the correct functions to each button
 
@@ -140,12 +144,19 @@ const allBtn = document.getElementById("all-btn");
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
+const unfundedGame = GAMES_JSON.filter(game => game.pledged < game.goal).length;
 
 
 // create a string that explains the number of unfunded games using the ternary operator
+const unfundedString = unfundedGame === 0 ? "all" : unfundedGame;
+
 
 
 // create a new DOM element containing the template string and append it to the description container
+const description = document.createElement("p");
+description.innerHTML = `We have ${GAMES_JSON.length} games available. ${unfundedString} are not yet funded.`;
+descriptionContainer.appendChild(description);
+
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
