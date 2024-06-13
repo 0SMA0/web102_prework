@@ -23,7 +23,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://cdn.discordapp.com/attachments/909641146018439192/1250692641306312767/codepath.gif?ex=666bddca&is=666a8c4a&hm=e3fba19053b3838947cd8f22344210a9e2924171a571a19ffdd9be559f0209a6&' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
@@ -34,7 +34,7 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I changed the width of the images to fit better, before the images were out of the container.
 
 ## License
 
